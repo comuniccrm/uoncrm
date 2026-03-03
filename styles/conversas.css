@@ -1,0 +1,484 @@
+/* Conversas Layout - 3 Panes */
+.conversas-layout {
+    display: flex;
+    height: 100%;
+    margin: -40px;
+    /* Pull out of main-content padding */
+    background: transparent;
+}
+
+/* 1. Conversations List */
+.conv-sidebar {
+    width: 320px;
+    border-right: 1px solid #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
+
+.conv-sidebar-header {
+    padding: 20px;
+}
+
+.conv-search {
+    display: flex;
+    align-items: center;
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    border-radius: 10px;
+    padding: 8px 14px;
+    gap: 10px;
+    margin-bottom: 20px;
+    transition: var(--transition-base);
+}
+
+.conv-search input::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+.conv-tabs {
+    display: flex;
+    gap: 16px;
+}
+
+.conv-tab {
+    font-size: 13px;
+    font-weight: 500;
+    color: #94a3b8;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.conv-tab.active {
+    background: #f1f5f9;
+    color: var(--text-primary);
+}
+
+.conv-list {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.conv-item {
+    display: flex;
+    padding: 16px 20px;
+    gap: 12px;
+    border-bottom: 1px solid #f8fafc;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.conv-item:hover {
+    background: #fdfdfd;
+}
+
+.conv-item.active {
+    background: #eff6ff;
+    position: relative;
+}
+
+.conv-item.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 24px;
+    background: var(--brand-color);
+    border-radius: 0 4px 4px 0;
+}
+
+.conv-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 14px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* status colors */
+.conv-status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    border: 2px solid #fff;
+    background-color: #cbd5e1;
+}
+
+.online {
+    background-color: #10b981;
+}
+
+.offline {
+    background-color: #ef4444;
+}
+
+.conv-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.conv-time {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+}
+
+.conv-snippet {
+    font-size: 13px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 400;
+}
+
+/* 2. Chat Area */
+.conv-chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-page);
+}
+
+.chat-header {
+    height: 64px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    background: #ffffff;
+}
+
+.chat-contact-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chat-contact-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.chat-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--text-secondary);
+    font-size: 20px;
+}
+
+.btn-end {
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    background: transparent;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.chat-tags-bar {
+    padding: 12px 24px;
+    background: #ffffff;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.chat-tag {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-weight: 500;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.chat-tag.mql {
+    background: #fdf2f8;
+    color: #db2777;
+    border: 1px solid #fce7f3;
+}
+
+.chat-tag.icp {
+    background: #eff6ff;
+    color: #3b82f6;
+    border: 1px solid #dbeafe;
+}
+
+.chat-tag.other {
+    background: #f8fafc;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 32px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #f8fafc;
+}
+
+.msg-bubble {
+    max-width: 65%;
+    padding: 12px 18px;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 1.6;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.msg-bubble.received {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.msg-bubble.sent {
+    background: #eff6ff;
+    color: #1e3a8a;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    border: 1px solid #dbeafe;
+}
+
+.msg-time {
+    font-size: 10px;
+    color: #94a3b8;
+    margin-top: 6px;
+    text-align: right;
+}
+
+.chat-input-area {
+    padding: 24px;
+    background: #ffffff;
+    border-top: 1px solid #f1f5f9;
+}
+
+.chat-quick-replies {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.quick-reply-btn {
+    font-size: 12px;
+    padding: 8px 16px;
+    background: #ffffff;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    border-radius: 100px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transition-base);
+}
+
+.quick-reply-btn:hover {
+    border-color: var(--brand-color);
+    color: var(--brand-color);
+    background: #eff6ff;
+}
+
+.chat-input-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    border-radius: 100px;
+    padding: 6px 8px 6px 20px;
+}
+
+.chat-input-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    padding: 10px 0;
+    color: var(--text-primary);
+}
+
+.btn-send {
+    background: var(--brand-color);
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.btn-send:hover {
+    transform: scale(1.05);
+    background: var(--brand-color-hover);
+}
+
+/* 3. Contact Details & Map Area */
+.conv-details {
+    width: 300px;
+    border-left: 1px solid var(--border-color);
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.details-header {
+    height: 64px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.details-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.details-section {
+    margin-bottom: 24px;
+}
+
+.details-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.details-value {
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+/* Validation Section with Chips */
+.validation-section {
+    background: #f8fafc;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+}
+
+.status-chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.status-chip {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.status-chip:hover {
+    border-color: var(--brand-color);
+    color: var(--brand-color);
+    background: #eff6ff;
+}
+
+.status-chip.active {
+    background: var(--brand-color);
+    color: #fff;
+    border-color: var(--brand-color);
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+.details-info-box {
+    background: #f1f5f9;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.status-badge.entrada {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.status-badge.agendamento {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.status-badge.follow_up {
+    background: #fae8ff;
+    color: #a21caf;
+}
+
+.status-badge.reuniao {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status-badge.ganhou {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.status-badge.perdido {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* Remove old map styles if needed, or keep for other views if they use it */
+.map-container {
+    display: none;
+}

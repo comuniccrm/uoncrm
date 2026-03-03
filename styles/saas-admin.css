@@ -1,0 +1,212 @@
+/* styles/saas-admin.css */
+
+.saas-admin-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--bg-primary);
+    padding: 24px;
+    gap: 24px;
+}
+
+.saas-panel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.saas-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.saas-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.saas-card p {
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+/* Color Picker Row */
+.color-picker-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.color-picker-group label {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.color-picker-group input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    overflow: hidden;
+}
+
+.color-picker-group input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.color-picker-group input[type="color"]::-webkit-color-swatch {
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+}
+
+/* Logo Upload Area */
+.logo-upload-box {
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: var(--bg-primary);
+    transition: all 0.2s;
+    margin-bottom: 16px;
+}
+
+.logo-upload-box:hover {
+    border-color: var(--brand-color);
+    background-color: var(--bg-hover);
+}
+
+.logo-upload-box img#saas-logo-preview {
+    max-width: 150px;
+    max-height: 60px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.logo-upload-box i.placeholder-icon {
+    font-size: 32px;
+    color: var(--text-tertiary);
+    margin-bottom: 12px;
+}
+
+.saas-input-group {
+    margin-bottom: 16px;
+}
+
+.saas-input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.saas-input-group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.saas-input-group input[type="text"]:focus {
+    outline: none;
+    border-color: var(--brand-color);
+}
+
+.saas-clients-list {
+    margin-top: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.saas-client-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.saas-client-item:last-child {
+    border-bottom: none;
+}
+
+.client-info span {
+    display: block;
+}
+
+.client-info .c-name {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.client-info .c-domain {
+    color: var(--text-tertiary);
+    font-size: 12px;
+}
+
+.client-status {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #dcfce7;
+    color: #166534;
+}
+
+.mock-preview-frame {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    height: 400px;
+    background: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-header {
+    height: 50px;
+    background-color: var(--saas-mock-brand, #3b82f6);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.preview-body {
+    flex: 1;
+    padding: 24px;
+    background: var(--bg-primary);
+}
+
+.preview-fake-card {
+    height: 100px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 12px;
+}

@@ -1,0 +1,270 @@
+/* Dashboard Layout */
+.dashboard-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Stats Row */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: var(--transition-base);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.stat-icon-wrapper {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-tertiary);
+    font-size: 18px;
+    border: 1px solid var(--border-color);
+}
+
+.stat-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+.stat-badge.positive {
+    background-color: #ecfdf5;
+    color: #10b981;
+}
+
+.stat-badge.negative {
+    background-color: #fef2f2;
+    color: #ef4444;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+    letter-spacing: -0.01em;
+}
+
+.stat-label {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-tertiary);
+    margin-bottom: 24px;
+}
+
+/* Sparklines - Matching bars in reference */
+.sparkline {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 32px;
+    margin-top: auto;
+}
+
+.sparkbar {
+    flex: 1;
+    background-color: #dbeafe;
+    border-radius: 100px;
+    min-height: 4px;
+}
+
+.sparkbar:last-child {
+    background-color: var(--brand-color);
+}
+
+/* Middle Row */
+.middle-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 24px;
+}
+
+.card {
+    background: var(--bg-surface);
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Channels List */
+.channel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.channel-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.channel-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #eff6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand-color);
+    font-size: 20px;
+}
+
+.channel-name {
+    font-size: 14px;
+    font-weight: 500;
+    flex: 1;
+}
+
+.channel-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.status-dot.online {
+    background-color: #3b82f6;
+}
+
+/* Blue in mockup */
+.status-dot.offline {
+    background-color: #ef4444;
+}
+
+/* Pipeline Progress */
+.pipeline-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pipeline-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pipeline-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.pipeline-name {
+    font-weight: 500;
+}
+
+.pipeline-count {
+    color: var(--text-secondary);
+}
+
+.progress-bg {
+    height: 8px;
+    background: #f1f5f9;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--brand-color);
+    border-radius: 4px;
+}
+
+/* Filter Pills */
+.filter-pills {
+    display: flex;
+    gap: 8px;
+}
+
+.pill {
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    background: #f1f5f9;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.pill.active {
+    background: #e0e7ff;
+    color: var(--brand-color);
+    font-weight: 600;
+}
+
+/* Bottom Row */
+.bottom-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.activity-card,
+.events-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+}
+
+.card-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.card-right {
+    font-size: 14px;
+    color: var(--text-secondary);
+}

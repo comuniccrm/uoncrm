@@ -1,0 +1,323 @@
+/* styles/automacoes.css */
+
+/* Layout e Containers Principais */
+.automacoes-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--bg-primary);
+    padding: 24px;
+    gap: 24px;
+}
+
+/* --- Construtor de Fluxo --- */
+.flowbuilder-container {
+    flex: 1;
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.flow-sidebar {
+    width: 250px;
+    background-color: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.flow-sidebar h3 {
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.draggable-node {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: grab;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.draggable-node:hover {
+    border-color: var(--brand-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.draggable-node.trigger {
+    border-left: 4px solid #f59e0b;
+}
+
+.draggable-node.ai-response {
+    border-left: 4px solid #8b5cf6;
+}
+
+.draggable-node.action {
+    border-left: 4px solid #10b981;
+}
+
+.draggable-node i {
+    font-size: 20px;
+    color: var(--text-secondary);
+}
+
+.flow-canvas {
+    flex: 1;
+    position: relative;
+    background-image:
+        radial-gradient(var(--border-color) 1px, transparent 1px),
+        radial-gradient(var(--border-color) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    background-color: #fafafa;
+    overflow: auto;
+}
+
+/* Canvas Nodes */
+.canvas-node {
+    position: absolute;
+    width: 240px;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    cursor: grab;
+    z-index: 10;
+}
+
+.canvas-node.trigger-node {
+    border-top: 4px solid #f59e0b;
+}
+
+.canvas-node.ai-node {
+    border-top: 4px solid #8b5cf6;
+}
+
+.canvas-node.action-node {
+    border-top: 4px solid #10b981;
+}
+
+.canvas-node-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.canvas-node-body {
+    padding: 12px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.node-port {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border: 2px solid var(--text-tertiary);
+    border-radius: 50%;
+    position: absolute;
+    cursor: crosshair;
+}
+
+.node-port.input {
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.node-port.output {
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-color: var(--brand-color);
+}
+
+.canvas-connection-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* --- Base de Conhecimento --- */
+.knowledge-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.knowledge-panel {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.knowledge-panel h3 {
+    margin-bottom: 16px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.doc-upload-area {
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 32px;
+    text-align: center;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 24px;
+}
+
+.doc-upload-area:hover {
+    border-color: var(--brand-color);
+    background-color: var(--bg-hover);
+}
+
+.doc-upload-area i {
+    font-size: 32px;
+    color: var(--brand-color);
+    margin-bottom: 12px;
+}
+
+.doc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.doc-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-primary);
+}
+
+.doc-item-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.doc-item-info i {
+    font-size: 20px;
+    color: #ef4444;
+    /* PDF red */
+}
+
+/* --- Configurações da IA --- */
+.ai-config-section {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 800px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--brand-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.toggle-switch-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Reusing check toggle styles from previous files */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.toggle-slider {
+    background-color: var(--brand-color);
+}
+
+input:checked+.toggle-slider:before {
+    transform: translateX(20px);
+}

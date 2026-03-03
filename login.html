@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acessar Sua Marca CRM</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="brand-logo">
+                    <i class="ph-fill ph-rocket-launch"></i>
+                    <span>SUA <span class="brand-highlight">MARCA</span></span>
+                </div>
+                <h1 id="auth-title">Bem-vindo</h1>
+                <p id="auth-subtitle">Faça login para continuar</p>
+            </div>
+
+            <form id="auth-form">
+                <div class="form-group" id="name-group" style="display: none;">
+                    <label for="name">Nome Completo</label>
+                    <div class="input-wrapper">
+                        <i class="ph-light ph-user"></i>
+                        <input type="text" id="name" placeholder="Seu nome">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <div class="input-wrapper">
+                        <i class="ph-light ph-envelope"></i>
+                        <input type="email" id="email" placeholder="seu@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <div class="input-wrapper">
+                        <i class="ph-light ph-lock"></i>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="login-btn" id="submit-btn">
+                    <div class="loading-spinner"></div>
+                    <span id="btn-text">Entrar</span>
+                </button>
+
+                <div class="form-footer">
+                    <p id="toggle-p">Não tem uma conta? <a href="#" id="toggle-auth">Criar conta</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="scripts/supabase-config.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script>
+        const authForm = document.getElementById('auth-form');
+        const authTitle = document.getElementById('auth-title');
+        const authSubtitle = document.getElementById('auth-subtitle');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const toggleAuth = document.getElementById('toggle-auth');
+        const toggleP = document.getElementById('toggle-p');
+        const nameGroup = document.getElementById('name-group');
+
+        let isLogin = true;
+
+        // Check if already logged in
+        document.addEventListener('DOMContentLoaded', async () => {
+            await redirectIfAuth();
+        });
+
+        toggleAuth.addEventListener('click', (e) => {
+            e.preventDefault();
+            isLogin = !isLogin;
+
+            if (isLogin) {
+                authTitle.innerText = 'Bem-vindo';
+                authSubtitle.innerText = 'Faça login para continuar';
+                btnText.innerText = 'Entrar';
+                toggleP.innerHTML = 'Não tem uma conta? <a href="#" id="toggle-auth">Criar conta</a>';
+                nameGroup.style.display = 'none';
+            } else {
+                authTitle.innerText = 'Começar agora';
+                authSubtitle.innerText = 'Crie sua conta em segundos';
+                btnText.innerText = 'Cadastrar';
+                toggleP.innerHTML = 'Já tem uma conta? <a href="#" id="toggle-auth">Fazer login</a>';
+                nameGroup.style.display = 'block';
+            }
+
+            // Re-assign listener to the new element created by innerHTML change
+            const newToggleBtn = document.getElementById('toggle-auth');
+            if (newToggleBtn) {
+                newToggleBtn.addEventListener('click', (e) => toggleAuth.click());
+            }
+        });
+
+        authForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const name = document.getElementById('name').value.trim();
+
+            if (!email || !password || (!isLogin && !name)) {
+                showNotification('Por favor, preencha todos os campos.', 'error');
+                return;
+            }
+
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+
+            try {
+                if (isLogin) {
+                    console.log('Tentando login para:', email);
+                    const { data, error } = await signIn(email, password);
+                    if (error) throw error;
+
+                    showNotification('Sucesso! Redirecionando...', 'success');
+                    setTimeout(() => window.location.href = 'index.html', 1000);
+                } else {
+                    console.log('Tentando cadastro para:', email);
+                    const { data, error } = await signUp(email, password, { full_name: name });
+                    if (error) throw error;
+
+                    if (data?.session) {
+                        showNotification('Conta criada! Entrando...', 'success');
+                        setTimeout(() => window.location.href = 'index.html', 1500);
+                    } else if (data?.user?.identities?.length === 0) {
+                        showNotification('E-mail já cadastrado.', 'error');
+                    } else {
+                        showNotification('Conta criada! Verifique seu e-mail para confirmar.', 'success');
+                        // Stay in loading/disable state or reset? 
+                        // Let's reset so they can try to login after confirming or fix email
+                        setTimeout(() => {
+                            isLogin = true;
+                            toggleAuth.click();
+                        }, 5000);
+                    }
+                }
+            } catch (error) {
+                console.error('Auth Error details:', error);
+                let msg = error.message || 'Erro ao processar.';
+                if (msg.includes('invalid_credentials')) msg = 'E-mail ou senha incorretos.';
+                if (msg.includes('Email not confirmed')) msg = 'E-mail ainda não confirmado. Verifique sua caixa de entrada.';
+
+                showNotification(msg, 'error');
+            } finally {
+                // IMPORTANT: Always clear loading state
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            }
+        });
+
+        function showNotification(message, type = '') {
+            const notification = document.getElementById('notification');
+            notification.className = `notification show ${type}`;
+            notification.innerText = message;
+
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>
