@@ -2738,7 +2738,8 @@ window.showSocialLoginModal = function (platform) {
     const isIG = platform === 'instagram';
 
     // Scopes needed for Pages and Instagram Graph API
-    const scopes = 'pages_show_list,pages_read_engagement,pages_manage_metadata,pages_read_user_content,pages_manage_ads,pages_manage_posts,pages_manage_engagement,public_profile';
+    // Scopes operacionais básicos (evita erro de permissões não aprovadas)
+    const scopes = 'public_profile,email,pages_show_list,pages_read_engagement,pages_messaging,instagram_manage_messages';
 
     FB.login(function (response) {
         if (response.authResponse) {
