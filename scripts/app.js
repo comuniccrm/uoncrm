@@ -2402,7 +2402,7 @@ async function renderDsTrackMessages() {
             `;
 
             try {
-                const res = await fetch(`http://localhost:3000/api/messages/${socialState.platform}`);
+                const res = await fetch(`/api/messages/${socialState.platform}`);
                 if (res.ok) {
                     socialState.chats[socialState.platform] = await res.json();
                 }
@@ -2532,7 +2532,7 @@ async function renderDsTrackMessages() {
                     updateUI(true);
 
                     try {
-                        await fetch('http://localhost:3000/api/messages/send', {
+                        await fetch('/api/messages/send', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
@@ -2687,7 +2687,7 @@ window.getSocialConnections = async function () {
     };
 
     try {
-        const response = await fetch('http://localhost:3000/api/connections');
+        const response = await fetch('/api/connections');
         if (response.ok) {
             const data = await response.json();
             return {
@@ -2714,7 +2714,7 @@ window.getSocialConnections = async function () {
 
 window.updateSocialConnection = async function (platform, data) {
     try {
-        await fetch('http://localhost:3000/api/connections', {
+        await fetch('/api/connections', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ platform, ...data })
@@ -2788,7 +2788,7 @@ window.disconnectSocialAccount = async function (platform) {
     const name = platform === 'instagram' ? 'Instagram' : 'Facebook';
     if (confirm(`Deseja realmente desconectar sua conta do ${name} ? `)) {
         try {
-            await fetch(`http://localhost:3000/api/connections/${platform}`, {
+            await fetch(`/api/connections/${platform}`, {
                 method: 'DELETE'
             });
         } catch (e) {
