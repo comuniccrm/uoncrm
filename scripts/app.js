@@ -3835,75 +3835,58 @@ App.resetBranding = function () {
 
 function renderWhatsAppWeb() {
     const div = document.createElement('div');
-    const isConnected = App.whatsappStatus === 'connected';
+    div.className = 'whatsapp-web-portal';
+    div.style.height = '100%';
+    div.style.display = 'flex';
+    div.style.flexDirection = 'column';
 
     div.innerHTML = `
-        <div class="page-header" style="border-bottom: 1px solid var(--border-color); padding: 16px 24px; background: var(--bg-body);">
+        <div class="page-header" style="border-bottom: 1px solid var(--border-color); padding: 16px 24px; background: var(--bg-surface);">
             <div>
-                <div class="greeting">Central de Controle</div>
+                <div class="greeting">Navegador Integrado</div>
                 <h2 class="company-name" style="display:flex; align-items:center; gap:8px;">
-                    <i class="ph-light ph-whatsapp-logo" style="color: #2563eb"></i> Gestão de Conexão WhatsApp
+                    <i class="ph-light ph-whatsapp-logo" style="color: #25D366"></i> WhatsApp Web Oficial
                 </h2>
             </div>
             <div class="header-actions">
-                ${isConnected ?
-            `<button class="btn-primary btn-white" onclick="App.setWhatsAppStatus('disconnected'); App.navigateTo('whatsapp-web')"><i class="ph-light ph-power"></i> Desconectar</button>` :
-            `<button class="btn-primary" onclick="window.showWhatsAppQrModal()"><i class="ph-light ph-plus"></i> Nova Conexão</button>`
-        }
+                <button class="btn-primary btn-white" onclick="document.getElementById('wa-iframe').src='https://web.whatsapp.com/'">
+                    <i class="ph-light ph-arrows-clockwise"></i> Recarregar
+                </button>
+                <a href="https://web.whatsapp.com/" target="_blank" class="btn-primary">
+                    <i class="ph-light ph-arrow-square-out"></i> Abrir em Nova Aba
+                </a>
             </div>
         </div>
         
-        <div style="padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; background: var(--bg-body); min-height: calc(100vh - 100px);">
-            <div class="stat-card-premium" style="display: flex; flex-direction: column; gap: 20px;">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <div>
-                        <div class="stat-label">STATUS DA INSTÂNCIA</div>
-                        <div style="font-size: 20px; font-weight: 600; margin-top: 4px; color: ${isConnected ? '#2563eb' : 'var(--text-secondary)'}">
-                            ${isConnected ? 'Controle Ativo' : 'Aguardando Pareamento'}
-                        </div>
-                    </div>
-                    <div style="width: 48px; height: 48px; border-radius: 12px; background: color-mix(in srgb, ${isConnected ? '#2563eb' : 'var(--text-secondary)'}, transparent 90%); display: flex; align-items: center; justify-content: center;">
-                        <i class="ph-light ph-${isConnected ? 'shield-check' : 'cloud-slash'}" style="font-size: 24px; color: ${isConnected ? '#2563eb' : 'var(--text-secondary)'}"></i>
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
-                    Sua conta está sincronizada diretamente com o CRM. Todas as conversas e mídias são processadas nativamente para garantir velocidade e segurança.
-                </div>
-                <button class="btn-primary" style="width: 100%; border-radius: 12px;" onclick="App.navigateTo('conversas')">
-                    <i class="ph-light ph-chat-text"></i> Acessar Inbox Integrada
-                </button>
-            </div>
-
-            <div class="stat-card-premium">
-                <div class="stat-label">MÉTRICAS DE ATENDIMENTO</div>
-                <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 12px;">
-                    <div style="display: flex; justify-content: space-between; padding: 12px; background: var(--bg-body); border-radius: 8px;">
-                        <span style="font-size: 14px; color: var(--text-secondary);">Mensagens Hoje</span>
-                        <span style="font-weight: 600;">128</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding: 12px; background: var(--bg-body); border-radius: 8px;">
-                        <span style="font-size: 14px; color: var(--text-secondary);">Leads Direcionados</span>
-                        <span style="font-weight: 600;">14</span>
-                    </div>
-                </div>
-            </div>
+        <div style="flex:1; position:relative; background: #0b141a;">
+            <iframe 
+                id="wa-iframe"
+                src="https://web.whatsapp.com/" 
+                style="width:100%; height:100%; border:none;"
+                title="WhatsApp Web Official"
+            ></iframe>
             
-            <div class="stat-card-premium">
-                <div class="stat-label">DISPOSITIVO PAREADO</div>
-                <div style="margin-top: 16px; display: flex; align-items: center; gap: 16px;">
-                    <div style="width: 60px; height: 60px; border-radius: 14px; background: #f1f5f9; display: flex; align-items: center; justify-content: center;">
-                        <i class="ph-light ph-smartphone" style="font-size: 32px; color: var(--text-secondary);"></i>
-                    </div>
-                    <div>
-                        <div style="font-weight: 600;">iPhone 15 Pro de Lucas</div>
-                        <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">Visto por último: Hoje, 10:45</div>
-                    </div>
+            <div id="wa-loading-hint" style="position:absolute; inset:0; pointer-events:none; display:flex; align-items:center; justify-content:center; background: #0b141a; transition: opacity 0.5s;">
+                <div style="text-align:center; color:#fff;">
+                    <i class="ph-light ph-whatsapp-logo" style="font-size:48px; color:#25D366; margin-bottom:16px;"></i>
+                    <p>Conectando ao WhatsApp...</p>
+                    <p style="font-size:12px; color:#8696a0; margin-top:8px;">Se a página não carregar por segurança do navegador, use o botão ao lado.</p>
                 </div>
             </div>
         </div>
     `;
 
+    // Hide loading hint after a few seconds
+    setTimeout(() => {
+        const hint = div.querySelector('#wa-loading-hint');
+        if (hint) hint.style.opacity = '0';
+        setTimeout(() => hint && hint.remove(), 500);
+    }, 4000);
+
     return div;
+}
+
+return div;
 }
 
 window.saveActionFlow = function () {
