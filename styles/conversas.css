@@ -72,7 +72,7 @@
 }
 
 .conv-item:hover {
-    background: #fdfdfd;
+    background: var(--bg-surface-secondary);
 }
 
 .conv-item.active {

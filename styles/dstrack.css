@@ -238,7 +238,7 @@
     flex: 1;
     padding: 24px;
     overflow-y: auto;
-    background: #fdfdfd;
+    background: var(--bg-surface-secondary);
 }
 
 .msg-row {
@@ -553,7 +553,7 @@
 .social-input {
     width: 100%;
     padding: 12px;
-    background: #fafafa;
+    background: var(--bg-surface-secondary);
     border: 1px solid #dbdbdb;
     border-radius: 3px;
     font-size: 14px;
@@ -807,7 +807,7 @@
 }
 
 .ig-media-side {
-    background: #fafafa;
+    background: var(--bg-surface-secondary);
     border-right: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
@@ -861,7 +861,7 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: #efefef;
+    background: var(--bg-surface-secondary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -924,7 +924,7 @@
 }
 
 .ig-settings-row:hover {
-    background: #fafafa;
+    background: var(--bg-surface-secondary);
 }
 
 .ig-settings-label {
@@ -969,7 +969,7 @@
     display: flex;
     gap: 8px;
     padding: 8px 16px;
-    background: #fafafa;
+    background: var(--bg-surface-secondary);
 }
 
 .ig-platform-opt {
@@ -1097,7 +1097,7 @@
 
 .ig-reels-cover-section {
     padding: 16px;
-    background: #fafafa;
+    background: var(--bg-surface-secondary);
     border-top: 1px solid var(--border-color);
 }
 
@@ -1165,7 +1165,7 @@
 }
 
 .fb-type-btn.active {
-    background: #eff6ff;
+    background: var(--brand-color-light);
     border-color: #1877f2;
     color: #1877f2;
 }
