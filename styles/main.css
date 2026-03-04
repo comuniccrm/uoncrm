@@ -74,7 +74,7 @@
 
 body {
     font-family: 'Outfit', system-ui, -apple-system, sans-serif;
-    background-color: var(--bg-window);
+    background-color: var(--bg-page);
     padding: 2vh 4vw;
     height: 100vh;
     display: flex;
@@ -89,7 +89,7 @@ body {
     max-width: 1512px;
     height: 100%;
     max-height: 940px;
-    background: var(--bg-glass);
+    background: var(--bg-surface);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: var(--radius-lg);
