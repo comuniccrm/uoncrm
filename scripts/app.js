@@ -706,8 +706,6 @@ function renderConversasView() {
 
     let statusLabel = activeContact.status === 'reuniao' ? 'Reunião Agendada' : (activeContact.status === 'no_show' ? 'No-Show' : 'Em andamento');
 
-    const isConnected = App.whatsappStatus === 'connected';
-
     div.innerHTML = `
         <div class="conversas-layout">
             <div class="conv-sidebar">
