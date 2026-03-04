@@ -270,7 +270,7 @@
 }
 
 .received .msg-bubble {
-    background: #f1f5f9;
+    background: var(--bg-surface-secondary);
     color: var(--text-primary);
     border-bottom-left-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
@@ -1079,7 +1079,7 @@
 }
 
 .ig-tag-item {
-    background: #f1f5f9;
+    background: var(--bg-surface-secondary);
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 12px;
@@ -1159,7 +1159,7 @@
 }
 
 .ig-type-btn.active {
-    background: #f1f5f9;
+    background: var(--bg-surface-secondary);
     border-color: var(--text-primary);
     color: var(--text-primary);
 }
