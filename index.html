@@ -42,43 +42,36 @@
 <body>
     <div class="app-window">
         <!-- System Topbar (the one with the dots and colors) -->
-        <header class="system-topbar">
-            <div class="window-controls">
-                <span class="control red"></span>
-                <span class="control yellow"></span>
-                <span class="control green"></span>
-            </div>
 
-            <div class="url-bar">sua-marca.seudominio.com</div>
 
-            <div class="theme-picker">
-                <span class="theme-label">Cor da marca:</span>
-                <div class="theme-colors">
-                    <button class="color-dot" style="--btn-color: #2dd4bf"
-                        onclick="setBrandColor('#2dd4bf', this)"></button>
-                    <button class="color-dot active" style="--btn-color: #3b82f6"
-                        onclick="setBrandColor('#3b82f6', this)"></button>
-                    <button class="color-dot" style="--btn-color: #8b5cf6"
-                        onclick="setBrandColor('#8b5cf6', this)"></button>
-                    <button class="color-dot" style="--btn-color: #f97316"
-                        onclick="setBrandColor('#f97316', this)"></button>
-                    <button class="color-dot" style="--btn-color: #ec4899"
-                        onclick="setBrandColor('#ec4899', this)"></button>
-                    <button class="color-dot" style="--btn-color: #eab308"
-                        onclick="setBrandColor('#eab308', this)"></button>
-                    <button class="color-dot" style="--btn-color: #06b6d4"
-                        onclick="setBrandColor('#06b6d4', this)"></button>
-                    <button class="color-dot" style="--btn-color: #ef4444"
-                        onclick="setBrandColor('#ef4444', this)"></button>
-                </div>
+        <div class="theme-picker">
+            <span class="theme-label">Cor da marca:</span>
+            <div class="theme-colors">
+                <button class="color-dot" style="--btn-color: #2dd4bf"
+                    onclick="setBrandColor('#2dd4bf', this)"></button>
+                <button class="color-dot active" style="--btn-color: #3b82f6"
+                    onclick="setBrandColor('#3b82f6', this)"></button>
+                <button class="color-dot" style="--btn-color: #8b5cf6"
+                    onclick="setBrandColor('#8b5cf6', this)"></button>
+                <button class="color-dot" style="--btn-color: #f97316"
+                    onclick="setBrandColor('#f97316', this)"></button>
+                <button class="color-dot" style="--btn-color: #ec4899"
+                    onclick="setBrandColor('#ec4899', this)"></button>
+                <button class="color-dot" style="--btn-color: #eab308"
+                    onclick="setBrandColor('#eab308', this)"></button>
+                <button class="color-dot" style="--btn-color: #06b6d4"
+                    onclick="setBrandColor('#06b6d4', this)"></button>
+                <button class="color-dot" style="--btn-color: #ef4444"
+                    onclick="setBrandColor('#ef4444', this)"></button>
             </div>
+        </div>
 
-            <div class="topbar-right">
-                <button class="theme-toggle" onclick="window.toggleTheme()" title="Alternar tema claro/escuro">
-                    <i class="ph-light ph-moon"></i>
-                </button>
-                <span>SaaS White-Label Ativo</span>
-            </div>
+        <div class="topbar-right">
+            <button class="theme-toggle" onclick="window.toggleTheme()" title="Alternar tema claro/escuro">
+                <i class="ph-light ph-moon"></i>
+            </button>
+            <span>SaaS White-Label Ativo</span>
+        </div>
         </header>
 
         <!-- Main App Area -->
