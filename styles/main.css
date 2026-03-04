@@ -19,8 +19,8 @@
 
     --border-color: #f1f5f9;
     --border-dark: #e2e8f0;
-    --border-subtle: rgba(0, 0, 0, 0.04);
-    --border-glass: rgba(255, 255, 255, 0.3);
+    --border-subtle: #e2e8f0;
+    --border-glass: rgba(0, 0, 0, 0.08);
     --border-strong: #cbd5e1;
 
     --status-success: #10b981;

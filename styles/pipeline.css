@@ -155,7 +155,7 @@
 /* Card internal layout */
 .kanban-card {
     background: var(--bg-surface);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-subtle);
     border-radius: 12px;
     padding: 16px;
     cursor: grab;
