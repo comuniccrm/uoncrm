@@ -1,8 +1,8 @@
 :root {
     --brand-color: #3b82f6;
-    --brand-gradient: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    --brand-gradient: linear-gradient(135deg, var(--brand-color) 0%, color-mix(in srgb, var(--brand-color) 80%, black) 100%);
     --brand-color-light: color-mix(in srgb, var(--brand-color) 12%, transparent);
-    --brand-color-hover: #2563eb;
+    --brand-color-hover: color-mix(in srgb, var(--brand-color) 90%, black);
 
     --bg-page: #ffffff;
     --bg-surface: #ffffff;

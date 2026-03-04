@@ -41,13 +41,13 @@
     width: 36px;
     height: 36px;
     border-radius: 10px;
-    background: var(--bg-surface-secondary);
+    background: var(--brand-color-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-tertiary);
+    color: var(--brand-color);
     font-size: 18px;
-    border: 1px solid var(--border-subtle);
+    border: 1px solid color-mix(in srgb, var(--brand-color) 20%, transparent);
 }
 
 .stat-badge {
@@ -100,6 +100,7 @@
 
 .sparkbar:last-child {
     background-color: var(--brand-color);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--brand-color) 30%, transparent);
 }
 
 /* Middle Row */
