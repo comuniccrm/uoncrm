@@ -44,25 +44,25 @@
 }
 
 [data-theme="dark"] {
-    --bg-page: #121212;
-    --bg-surface: #1e1e1e;
-    --bg-surface-secondary: #121212;
-    --bg-surface-tertiary: #2a2a2a;
+    --bg-page: #0a0a0a;
+    --bg-surface: rgba(255, 255, 255, 0.03);
+    --bg-surface-secondary: rgba(255, 255, 255, 0.015);
+    --bg-surface-tertiary: rgba(255, 255, 255, 0.05);
     --bg-window: #000000;
-    --bg-glass: rgba(18, 18, 18, 0.8);
-    --bg-hover: rgba(255, 255, 255, 0.05);
+    --bg-glass: rgba(10, 10, 10, 0.8);
+    --bg-hover: rgba(255, 255, 255, 0.04);
 
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --text-tertiary: #64748b;
 
-    --border-color: #2a2a2a;
-    --border-dark: #1e1e1e;
-    --border-subtle: rgba(255, 255, 255, 0.04);
-    --border-glass: rgba(255, 255, 255, 0.1);
-    --border-strong: #475569;
+    --border-color: rgba(255, 255, 255, 0.06);
+    --border-dark: rgba(255, 255, 255, 0.1);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-glass: rgba(255, 255, 255, 0.12);
+    --border-strong: rgba(255, 255, 255, 0.15);
 
-    --brand-color-light: color-mix(in srgb, var(--brand-color) 20%, transparent);
+    --brand-color-light: color-mix(in srgb, var(--brand-color) 15%, transparent);
 }
 
 * {

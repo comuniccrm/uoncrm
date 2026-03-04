@@ -76,6 +76,7 @@
     padding: 16px;
     border: 1px solid var(--border-subtle);
     transition: var(--transition-base);
+    backdrop-filter: blur(10px);
 }
 
 .kanban-column-header {
@@ -156,15 +157,16 @@
 .kanban-card {
     background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     padding: 16px;
     cursor: grab;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.2s, transform 0.2s;
+    box-shadow: none;
+    transition: var(--transition-base);
     display: flex;
     flex-direction: column;
     position: relative;
     gap: 12px;
+    backdrop-filter: blur(5px);
 }
 
 .kanban-card:hover {
