@@ -293,7 +293,7 @@
 .quick-reply-btn {
     font-size: 12px;
     padding: 8px 16px;
-    background: #ffffff;
+    background: var(--bg-surface);
     color: #64748b;
     border: 1px solid var(--border-subtle);
     border-radius: 100px;
@@ -305,7 +305,7 @@
 .quick-reply-btn:hover {
     border-color: var(--brand-color);
     color: var(--brand-color);
-    background: #eff6ff;
+    background: var(--brand-color-light);
 }
 
 .chat-input-box {
@@ -351,7 +351,7 @@
 .conv-details {
     width: 300px;
     border-left: 1px solid var(--border-color);
-    background: #ffffff;
+    background: var(--bg-surface);
     display: flex;
     flex-direction: column;
 }

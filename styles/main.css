@@ -540,7 +540,7 @@ i[class*="ph-"] {
 .cl-actions .search-box {
     display: flex;
     align-items: center;
-    background: #ffffff;
+    background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: 8px;
     padding: 8px 16px;
