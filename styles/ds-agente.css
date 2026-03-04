@@ -116,8 +116,8 @@
 }
 
 .folder-card {
-    background: #ffffff;
-    border: 1px solid #f1f5f9;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
     border-radius: 12px;
     padding: 16px 20px;
     min-width: 220px;

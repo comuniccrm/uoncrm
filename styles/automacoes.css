@@ -14,10 +14,10 @@
 .flowbuilder-container {
     flex: 1;
     display: flex;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
     overflow: hidden;
-    background-color: white;
+    background-color: var(--bg-surface);
 }
 
 .flow-sidebar {
@@ -76,11 +76,11 @@
     flex: 1;
     position: relative;
     background-image:
-        radial-gradient(var(--border-color) 1px, transparent 1px),
-        radial-gradient(var(--border-color) 1px, transparent 1px);
+        radial-gradient(var(--border-strong) 1px, transparent 1px),
+        radial-gradient(var(--border-strong) 1px, transparent 1px);
     background-size: 20px 20px;
     background-position: 0 0, 10px 10px;
-    background-color: #fafafa;
+    background-color: var(--bg-page);
     overflow: auto;
 }
 
@@ -88,10 +88,10 @@
 .canvas-node {
     position: absolute;
     width: 240px;
-    background: white;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
     cursor: grab;
     z-index: 10;
 }

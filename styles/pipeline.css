@@ -67,14 +67,15 @@
 }
 
 .kanban-column {
-    min-width: 280px;
-    width: 280px;
+    min-width: 300px;
+    width: 300px;
     display: flex;
     flex-direction: column;
-    background: #f8fafc;
-    border-radius: 12px;
+    background: var(--bg-surface-secondary);
+    border-radius: var(--radius-md);
     padding: 16px;
-    border: 1px solid #f1f5f9;
+    border: 1px solid var(--border-subtle);
+    transition: var(--transition-base);
 }
 
 .kanban-column-header {
@@ -321,7 +322,7 @@
 }
 
 .kanban-column.drag-over {
-    background-color: rgba(var(--brand-color-rgb), 0.05);
+    background-color: var(--bg-hover);
     border: 2px dashed var(--brand-color);
 }
 

@@ -113,8 +113,8 @@ const App = {
 
         // Premium transition: Fade out and slide
         mainContent.style.opacity = '0';
-        mainContent.style.transform = 'translateY(10px)';
-        mainContent.style.transition = 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)';
+        mainContent.style.transform = 'translateY(10px) scale(0.99)';
+        mainContent.style.transition = 'opacity 0.2s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
 
         setTimeout(async () => {
             mainContent.innerHTML = '';
@@ -152,8 +152,10 @@ const App = {
 
                 // Smooth fade in
                 requestAnimationFrame(() => {
-                    mainContent.style.opacity = '1';
-                    mainContent.style.transform = 'translateY(0)';
+                    setTimeout(() => {
+                        mainContent.style.opacity = '1';
+                        mainContent.style.transform = 'translateY(0) scale(1)';
+                    }, 50);
                 });
 
             } catch (error) {
@@ -572,10 +574,11 @@ function initRelatoriosChart() {
     }
 
     const brandColor = getComputedStyle(document.documentElement).getPropertyValue('--brand-color').trim() || '#3b82f6';
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
     // Create gradient
     const gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, 350);
-    gradient.addColorStop(0, 'rgba(59, 130, 246, 0.2)');
+    gradient.addColorStop(0, isDark ? 'rgba(59, 130, 246, 0.3)' : 'rgba(59, 130, 246, 0.2)');
     gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
 
     const data = [10, 15, 12, 60, 45, 40, 20, 15, 10, 8, 20, 15, 12, 10, 50, 40, 25, 20, 30, 20, 35, 20, 15, 25, 15, 20, 10];
@@ -2738,8 +2741,8 @@ window.showSocialLoginModal = function (platform) {
     const isIG = platform === 'instagram';
 
     // Scopes needed for Pages and Instagram Graph API
-    // Scopes mínimos absolutos (apenas perfil público para evitar erros de App Review)
-    const scopes = 'public_profile';
+    // Scopes recomendados (Perfil e E-mail não costumam dar erro de permissão)
+    const scopes = 'public_profile,email';
 
     FB.login(function (response) {
         if (response.authResponse) {
