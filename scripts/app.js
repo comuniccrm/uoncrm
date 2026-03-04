@@ -620,10 +620,56 @@ function initRelatoriosChart() {
 function renderConversasView() {
     const div = document.createElement('div');
     const contacts = window.getContacts ? window.getContacts() : [];
-    const activeContact = window.getActiveContact ? window.getActiveContact() : null;
+    const activeContact = window.getActiveContact ? window.getActiveContact() : (contacts.length > 0 ? contacts[0] : null);
 
-    if (!activeContact) {
-        div.innerHTML = `<div>Carregando contatos... (Dê refresh se necessário)</div>`;
+    const isConnected = App.whatsappStatus === 'connected';
+
+    if (!isConnected) {
+        div.innerHTML = `
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: var(--bg-body);">
+                <div class="stat-card-premium" style="max-width: 480px; padding: 60px; text-align: center; border: 1px solid var(--border-subtle); border-radius: 24px; background: var(--bg-surface); backdrop-filter: blur(10px);">
+                    <div style="width: 80px; height: 80px; background: color-mix(in srgb, var(--brand-color), transparent 90%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
+                        <i class="ph-light ph-whatsapp-logo" style="font-size: 40px; color: var(--brand-color);"></i>
+                    </div>
+                    <h2 style="margin-bottom: 12px; font-weight: 600;">Conecte seu WhatsApp</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 32px; line-height: 1.6;">
+                        Para visualizar suas conversas e gerenciar seus leads diretamente no CRM, você precisa parear sua conta oficial.
+                    </p>
+                    <button class="btn-primary" onclick="window.showWhatsAppQrModal()" style="width: 100%; padding: 16px; font-size: 16px;">
+                        <i class="ph-light ph-qr-code"></i> Escanear Código QR
+                    </button>
+                </div>
+            </div>
+        `;
+        return div;
+    }
+
+    if (!activeContact && isConnected) {
+        div.innerHTML = `
+            <div class="conversas-layout">
+                <div class="conv-sidebar">
+                    <div class="conv-sidebar-header">
+                        <div class="conv-search">
+                            <i class="ph-light ph-magnifying-glass"></i>
+                            <input type="text" placeholder="Buscar conversas...">
+                        </div>
+                    </div>
+                    <div class="conv-list" style="display:flex; align-items:center; justify-content:center; padding:40px; color:var(--text-secondary); text-align:center;">
+                        <div>
+                            <i class="ph-light ph-users" style="font-size:32px; opacity:0.3; margin-bottom:12px;"></i>
+                            <p>Nenhum contato encontrado no momento.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="conv-chat" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                    <i class="ph-light ph-chat-circle-dots" style="font-size: 64px; color: var(--border-color); margin-bottom: 16px; opacity: 0.3;"></i>
+                    <h3 style="color: var(--text-primary); margin-bottom: 8px;">Bem-vindo ao Atendimento</h3>
+                    <p style="color: var(--text-secondary); max-width: 300px; text-align: center; font-size: 14px;">
+                        Selecione um contato na lista lateral para iniciar ou continuar uma conversa integrada.
+                    </p>
+                </div>
+            </div>
+        `;
         return div;
     }
 
@@ -677,18 +723,11 @@ function renderConversasView() {
                     </div>
                 </div>
                 <div class="conv-list">
-                    ${isConnected ? contactsHtml : `
-                        <div style="padding: 24px; text-align: center; color: var(--text-secondary);">
-                            <i class="ph-light ph-whatsapp-logo" style="font-size: 48px; margin-bottom: 12px; opacity: 0.2;"></i>
-                            <p style="font-size: 14px; margin-bottom: 16px;">Conecte seu WhatsApp para visualizar as conversas.</p>
-                            <button class="btn-primary" onclick="window.showWhatsAppQrModal()" style="width: 100%;">Conectar Agora</button>
-                        </div>
-                    `}
+                    ${contactsHtml}
                 </div>
             </div>
             
             <div class="conv-chat">
-                ${isConnected ? `
                 <div class="chat-header">
                     <div class="chat-contact-info">
                         <div class="conv-avatar">${activeContact.name.charAt(0).toUpperCase()}</div>
@@ -696,12 +735,12 @@ function renderConversasView() {
                     </div>
                     <div class="chat-actions">
                         <div class="whatsapp-status-badge">
-                            <i class="ph-light ph-circle-wavy-check" style="color:#25D366"></i> API Conectada
+                            <i class="ph-light ph-circle-wavy-check" style="color:#2563eb"></i> Integrado
                         </div>
                         <i class="ph-light ph-magnifying-glass" style="cursor:pointer"></i>
                         <i class="ph-light ph-phone" style="cursor:pointer"></i>
                         <i class="ph-light ph-video-camera" style="cursor:pointer"></i>
-                        <button class="btn-end" onclick="App.setWhatsAppStatus('disconnected')">Desconectar</button>
+                        <button class="btn-end" onclick="App.setWhatsAppStatus('disconnected'); App.navigateTo('conversas')">Desconectar</button>
                     </div>
                 </div>
                 
@@ -711,7 +750,7 @@ function renderConversasView() {
                 
                 <div class="chat-messages">
                     <div class="msg-bubble received">
-                        Bom dia
+                        Bom dia! Em que posso ajudar?
                         <div class="msg-time">09:32</div>
                     </div>
                     <div class="msg-bubble received">
@@ -727,19 +766,10 @@ function renderConversasView() {
                         <button class="quick-reply-btn"><i class="ph-light ph-lightning"></i> Mensagem agendada</button>
                     </div>
                     <div class="chat-input-box">
-                        <input type="text" id="chat-input-main" placeholder="Digite uma mensagem ou use os atalhos rápidos para enviar!">
+                        <input type="text" id="chat-input-main" placeholder="Digite uma resposta integrada...">
                         <button class="btn-send" onclick="window.sendWhatsAppMessage()"><i class="ph-light ph-arrow-right"></i></button>
                     </div>
                 </div>
-                ` : `
-                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fff;">
-                    <i class="ph-light ph-chat-circle-dots" style="font-size: 64px; color: var(--border-color); margin-bottom: 16px;"></i>
-                    <h3 style="color: var(--text-primary); margin-bottom: 8px;">Aguardando Conexão</h3>
-                    <p style="color: var(--text-secondary); max-width: 300px; text-align: center; font-size: 14px;">
-                        Para começar a atender seus clientes, é necessário parear seu aparelho com o nosso sistema.
-                    </p>
-                </div>
-                `}
             </div>
 
             <div class="conv-details">
@@ -3807,48 +3837,69 @@ App.resetBranding = function () {
 
 function renderWhatsAppWeb() {
     const div = document.createElement('div');
-    div.className = 'whatsapp-web-layout';
-    div.style.height = '100%';
-    div.style.display = 'flex';
-    div.style.flexDirection = 'column';
-    div.style.overflow = 'hidden';
+    const isConnected = App.whatsappStatus === 'connected';
 
     div.innerHTML = `
-        <div class="page-header" style="border-bottom: 1px solid var(--border-color); padding: 16px 24px;">
+        <div class="page-header" style="border-bottom: 1px solid var(--border-color); padding: 16px 24px; background: var(--bg-body);">
             <div>
-                <div class="greeting">Integração Oficial</div>
+                <div class="greeting">Central de Controle</div>
                 <h2 class="company-name" style="display:flex; align-items:center; gap:8px;">
-                    <i class="ph-light ph-whatsapp-logo" style="color:#2563eb"></i> WhatsApp Web
+                    <i class="ph-light ph-whatsapp-logo" style="color: #2563eb"></i> Gestão de Conexão WhatsApp
                 </h2>
             </div>
             <div class="header-actions">
-                <a href="https://web.whatsapp.com/" target="_blank" class="btn-primary" style="text-decoration:none;">
-                    <i class="ph-light ph-arrow-square-out"></i> Abrir em Nova Aba
-                </a>
+                ${isConnected ?
+            `<button class="btn-primary btn-white" onclick="App.setWhatsAppStatus('disconnected'); App.navigateTo('whatsapp-web')"><i class="ph-light ph-power"></i> Desconectar</button>` :
+            `<button class="btn-primary" onclick="window.showWhatsAppQrModal()"><i class="ph-light ph-plus"></i> Nova Conexão</button>`
+        }
             </div>
         </div>
         
-        <div style="flex:1; position:relative; background: #0b141a;">
-            <iframe 
-                src="https://web.whatsapp.com/" 
-                style="width:100%; height:100%; border:none;"
-                id="whatsapp-iframe"
-                onerror="this.style.display='none'; document.getElementById('whatsapp-fallback').style.display='flex';"
-            ></iframe>
+        <div style="padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; background: var(--bg-body); min-height: calc(100vh - 100px);">
+            <div class="stat-card-premium" style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <div class="stat-label">STATUS DA INSTÂNCIA</div>
+                        <div style="font-size: 20px; font-weight: 600; margin-top: 4px; color: ${isConnected ? '#2563eb' : 'var(--text-secondary)'}">
+                            ${isConnected ? 'Controle Ativo' : 'Aguardando Pareamento'}
+                        </div>
+                    </div>
+                    <div style="width: 48px; height: 48px; border-radius: 12px; background: color-mix(in srgb, ${isConnected ? '#2563eb' : 'var(--text-secondary)'}, transparent 90%); display: flex; align-items: center; justify-content: center;">
+                        <i class="ph-light ph-${isConnected ? 'shield-check' : 'cloud-slash'}" style="font-size: 24px; color: ${isConnected ? '#2563eb' : 'var(--text-secondary)'}"></i>
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+                    Sua conta está sincronizada diretamente com o CRM. Todas as conversas e mídias são processadas nativamente para garantir velocidade e segurança.
+                </div>
+                <button class="btn-primary" style="width: 100%; border-radius: 12px;" onclick="App.navigateTo('conversas')">
+                    <i class="ph-light ph-chat-text"></i> Acessar Inbox Integrada
+                </button>
+            </div>
+
+            <div class="stat-card-premium">
+                <div class="stat-label">MÉTRICAS DE ATENDIMENTO</div>
+                <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 12px;">
+                    <div style="display: flex; justify-content: space-between; padding: 12px; background: var(--bg-body); border-radius: 8px;">
+                        <span style="font-size: 14px; color: var(--text-secondary);">Mensagens Hoje</span>
+                        <span style="font-weight: 600;">128</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 12px; background: var(--bg-body); border-radius: 8px;">
+                        <span style="font-size: 14px; color: var(--text-secondary);">Leads Direcionados</span>
+                        <span style="font-weight: 600;">14</span>
+                    </div>
+                </div>
+            </div>
             
-            <div id="whatsapp-fallback" style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; text-align:center; padding:40px; background: radial-gradient(circle at center, #111b21 0%, #0b141a 100%);">
-                <i class="ph-light ph-whatsapp-logo" style="font-size: 80px; color: #2563eb; margin-bottom: 24px;"></i>
-                <h3 style="margin-bottom:12px; font-size:24px;">Pronto para conectar?</h3>
-                <p style="color: #8696a0; max-width: 460px; margin-bottom: 32px; font-size: 16px; line-height: 1.5;">
-                    O WhatsApp Web é exibido aqui de forma segura. Se o seu navegador bloquear a visualização direta por motivos de privacidade, clique no botão abaixo para abrir em uma janela dedicada.
-                </p>
-                <div style="display:flex; gap:12px;">
-                    <a href="https://web.whatsapp.com/" target="_blank" class="btn-primary" style="padding: 14px 28px; font-size: 15px; text-decoration:none;">
-                        <i class="ph-light ph-whatsapp-logo"></i> Abrir WhatsApp Web
-                    </a>
-                    <button class="btn-primary btn-white" onclick="document.getElementById('whatsapp-iframe').src='https://web.whatsapp.com/'" style="padding: 14px 28px; font-size: 15px;">
-                        <i class="ph-light ph-arrows-clockwise"></i> Tentar Carregar Novamente
-                    </button>
+            <div class="stat-card-premium">
+                <div class="stat-label">DISPOSITIVO PAREADO</div>
+                <div style="margin-top: 16px; display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 60px; height: 60px; border-radius: 14px; background: #f1f5f9; display: flex; align-items: center; justify-content: center;">
+                        <i class="ph-light ph-smartphone" style="font-size: 32px; color: var(--text-secondary);"></i>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600;">iPhone 15 Pro de Lucas</div>
+                        <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">Visto por último: Hoje, 10:45</div>
+                    </div>
                 </div>
             </div>
         </div>
