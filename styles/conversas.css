@@ -229,7 +229,7 @@
 }
 
 .chat-tag.other {
-    background: #f8fafc;
+    background: var(--bg-surface-secondary);
     color: #64748b;
     border: 1px solid var(--border-subtle);
 }
@@ -392,7 +392,7 @@
 
 /* Validation Section with Chips */
 .validation-section {
-    background: #f8fafc;
+    background: var(--bg-surface-secondary);
     padding: 16px;
     border-radius: 16px;
     border: 1px solid var(--border-subtle);

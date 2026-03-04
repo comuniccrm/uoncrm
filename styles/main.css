@@ -602,7 +602,7 @@ i[class*="ph-"] {
 }
 
 .contacts-table th {
-    background: #f8fafc;
+    background: var(--bg-surface-secondary);
     padding: 16px;
     font-size: 13px;
     font-weight: 600;
@@ -624,7 +624,7 @@ i[class*="ph-"] {
 }
 
 .contacts-table tr:hover {
-    background: #f8fafc;
+    background: var(--bg-surface-secondary);
 }
 
 .contact-name-cell {
