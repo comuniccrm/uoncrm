@@ -9,7 +9,7 @@ const App = {
         'negocios': renderNegociosView,
         'contatos': renderContatosView,
         'dstrack-dashboard': renderDsTrackDashboard,
-        'dstrack-mensagens': renderDsTrackMessages,
+        'whatsapp-web': renderWhatsAppWeb,
         'dstrack-postagens': renderDsTrackPostagens,
         'dstrack-comentarios': renderDsTrackComentarios,
         'dstrack-conexao': renderDsTrackConexao,
@@ -3804,6 +3804,58 @@ App.resetBranding = function () {
         App.navigateTo('admin-saas'); // Refresh view
     }
 };
+
+function renderWhatsAppWeb() {
+    const div = document.createElement('div');
+    div.className = 'whatsapp-web-layout';
+    div.style.height = '100%';
+    div.style.display = 'flex';
+    div.style.flexDirection = 'column';
+    div.style.overflow = 'hidden';
+
+    div.innerHTML = `
+        <div class="page-header" style="border-bottom: 1px solid var(--border-color); padding: 16px 24px;">
+            <div>
+                <div class="greeting">Integração Oficial</div>
+                <h2 class="company-name" style="display:flex; align-items:center; gap:8px;">
+                    <i class="ph-light ph-whatsapp-logo" style="color:#2563eb"></i> WhatsApp Web
+                </h2>
+            </div>
+            <div class="header-actions">
+                <a href="https://web.whatsapp.com/" target="_blank" class="btn-primary" style="text-decoration:none;">
+                    <i class="ph-light ph-arrow-square-out"></i> Abrir em Nova Aba
+                </a>
+            </div>
+        </div>
+        
+        <div style="flex:1; position:relative; background: #0b141a;">
+            <iframe 
+                src="https://web.whatsapp.com/" 
+                style="width:100%; height:100%; border:none;"
+                id="whatsapp-iframe"
+                onerror="this.style.display='none'; document.getElementById('whatsapp-fallback').style.display='flex';"
+            ></iframe>
+            
+            <div id="whatsapp-fallback" style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; text-align:center; padding:40px; background: radial-gradient(circle at center, #111b21 0%, #0b141a 100%);">
+                <i class="ph-light ph-whatsapp-logo" style="font-size: 80px; color: #2563eb; margin-bottom: 24px;"></i>
+                <h3 style="margin-bottom:12px; font-size:24px;">Pronto para conectar?</h3>
+                <p style="color: #8696a0; max-width: 460px; margin-bottom: 32px; font-size: 16px; line-height: 1.5;">
+                    O WhatsApp Web é exibido aqui de forma segura. Se o seu navegador bloquear a visualização direta por motivos de privacidade, clique no botão abaixo para abrir em uma janela dedicada.
+                </p>
+                <div style="display:flex; gap:12px;">
+                    <a href="https://web.whatsapp.com/" target="_blank" class="btn-primary" style="padding: 14px 28px; font-size: 15px; text-decoration:none;">
+                        <i class="ph-light ph-whatsapp-logo"></i> Abrir WhatsApp Web
+                    </a>
+                    <button class="btn-primary btn-white" onclick="document.getElementById('whatsapp-iframe').src='https://web.whatsapp.com/'" style="padding: 14px 28px; font-size: 15px;">
+                        <i class="ph-light ph-arrows-clockwise"></i> Tentar Carregar Novamente
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    return div;
+}
 
 window.saveActionFlow = function () {
     const nodes = document.querySelectorAll('.canvas-node').length;
