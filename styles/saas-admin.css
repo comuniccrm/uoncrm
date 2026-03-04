@@ -18,7 +18,7 @@
 
 .saas-card {
     background: white;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-subtle);
     border-radius: 12px;
     padding: 24px;
 }
@@ -121,7 +121,7 @@
 .saas-input-group input[type="text"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-subtle);
     border-radius: 6px;
     font-family: inherit;
     font-size: 14px;
@@ -134,7 +134,7 @@
 
 .saas-clients-list {
     margin-top: 16px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-subtle);
     border-radius: 8px;
     overflow: hidden;
 }
@@ -176,7 +176,7 @@
 }
 
 .mock-preview-frame {
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-subtle);
     border-radius: 12px;
     overflow: hidden;
     height: 400px;
@@ -207,6 +207,6 @@
     height: 100px;
     background: white;
     border-radius: 8px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-subtle);
     margin-bottom: 12px;
 }

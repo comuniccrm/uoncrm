@@ -231,7 +231,7 @@
 .chat-tag.other {
     background: #f8fafc;
     color: #64748b;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-subtle);
 }
 
 .chat-messages {
@@ -295,7 +295,7 @@
     padding: 8px 16px;
     background: #ffffff;
     color: #64748b;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-subtle);
     border-radius: 100px;
     cursor: pointer;
     white-space: nowrap;
@@ -395,7 +395,7 @@
     background: #f8fafc;
     padding: 16px;
     border-radius: 16px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-subtle);
 }
 
 .status-chips-container {
@@ -408,7 +408,7 @@
 .status-chip {
     padding: 6px 12px;
     border-radius: 20px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-subtle);
     background: #fff;
     font-size: 11px;
     font-weight: 500;
