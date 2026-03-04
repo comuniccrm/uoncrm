@@ -26,7 +26,7 @@
     --status-success: #10b981;
     --status-warning: #f59e0b;
     --status-danger: #ef4444;
-    --status-info: #3b82f6;
+    --status-info: var(--brand-color);
 
     --radius-sm: 8px;
     --radius-md: 12px;
@@ -703,7 +703,7 @@ i[class*="ph-"] {
 
 .status-badge.entrada {
     background: #eff6ff;
-    color: #3b82f6;
+    color: var(--brand-color);
 }
 
 .status-badge.agendamento {

@@ -173,7 +173,7 @@
 }
 
 .status-dot.online {
-    background-color: #3b82f6;
+    background-color: var(--brand-color);
 }
 
 /* Blue in mockup */

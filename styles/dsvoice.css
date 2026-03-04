@@ -37,8 +37,8 @@
 
 .inner-nav-item.active {
     background: var(--brand-color-light);
-    color: #3b82f6;
-    border-right: 3px solid #3b82f6;
+    color: var(--brand-color);
+    border-right: 3px solid var(--brand-color);
 }
 
 .inner-nav-item i {
@@ -110,13 +110,13 @@
 }
 
 .folder-capsule:hover {
-    border-color: #3b82f6;
-    color: #3b82f6;
+    border-color: var(--brand-color);
+    color: var(--brand-color);
 }
 
 .folder-capsule i {
     font-size: 16px;
-    color: #3b82f6;
+    color: var(--brand-color);
 }
 
 .folder-capsule .ph-dots-three-vertical {
@@ -145,7 +145,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #3b82f6;
+    color: var(--brand-color);
     font-size: 20px;
 }
 
@@ -194,7 +194,7 @@
 }
 
 .message-card:hover {
-    border-color: #3b82f6;
+    border-color: var(--brand-color);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
@@ -298,6 +298,6 @@
 }
 
 .btn-blue {
-    background: #3b82f6;
+    background: var(--brand-color);
     color: #fff;
 }

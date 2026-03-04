@@ -111,7 +111,7 @@
 
 /* Adjust column color accents - thinner and cleaner */
 .kanban-column[data-status="entrada"] {
-    border-top: 3px solid #3b82f6;
+    border-top: 3px solid var(--brand-color);
 }
 
 .kanban-column[data-status="agendamento"] {
@@ -218,14 +218,14 @@
     padding: 2px 10px;
     border-radius: 100px;
     background: var(--brand-color-light);
-    color: #3b82f6;
+    color: var(--brand-color);
     font-weight: 500;
 }
 
 /* Specific tag colors - matching delicate palette */
 .k-tag.tag-follow {
     background-color: var(--brand-color-light);
-    color: #3b82f6;
+    color: var(--brand-color);
 }
 
 .k-tag.tag-follow-2 {
