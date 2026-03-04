@@ -29,7 +29,7 @@
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    background: #fff;
+    background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     transition: all 0.2s;
 }
@@ -54,7 +54,7 @@
 }
 
 .stat-card-premium {
-    background: #fff;
+    background: var(--bg-surface);
     padding: 24px;
     border-radius: 16px;
     border: 1px solid var(--border-subtle);
@@ -106,7 +106,7 @@
     max-width: 600px;
     margin: 40px auto;
     text-align: center;
-    background: white;
+    background: var(--bg-surface);
     padding: 40px;
     border-radius: 24px;
     border: 1px solid var(--border-subtle);
@@ -142,7 +142,7 @@
 .social-inbox-layout {
     display: grid;
     grid-template-columns: 320px 1fr;
-    background: white;
+    background: var(--bg-surface);
     border-radius: 20px;
     border: 1px solid var(--border-subtle);
     height: 700px;
@@ -213,7 +213,7 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #fff;
+    background: var(--bg-surface);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -303,7 +303,7 @@
 }
 
 .calendar-day {
-    background: white;
+    background: var(--bg-surface);
     min-height: 120px;
     padding: 8px;
     display: flex;
@@ -333,7 +333,7 @@
 }
 
 .connection-card {
-    background: white;
+    background: var(--bg-surface);
     border-radius: 20px;
     border: 1px solid var(--border-subtle);
     padding: 24px;
@@ -472,7 +472,7 @@
     cursor: pointer;
     transition: all 0.2s;
     border: 1px solid var(--border-subtle);
-    background: white;
+    background: var(--bg-surface);
     color: var(--text-primary);
     display: flex;
     align-items: center;
@@ -524,7 +524,7 @@
 
 /* Social Login Modals */
 .social-login-modal {
-    background: #fff;
+    background: var(--bg-surface);
     width: 100%;
     max-width: 400px;
     border-radius: 12px;
@@ -620,7 +620,7 @@
 }
 
 .fb-login-card {
-    background: #fff;
+    background: var(--bg-surface);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -738,7 +738,7 @@
 }
 
 .conn-actions .btn-conn-action:not(.primary) {
-    background: white;
+    background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     color: var(--text-secondary);
 }
@@ -797,7 +797,7 @@
     padding: 0 !important;
     overflow: hidden;
     border-radius: 12px !important;
-    background: white;
+    background: var(--bg-surface);
 }
 
 .ig-composer {
@@ -840,7 +840,7 @@
 .ig-details-side {
     display: flex;
     flex-direction: column;
-    background: white;
+    background: var(--bg-surface);
 }
 
 .ig-details-header {
@@ -979,7 +979,7 @@
     font-weight: 600;
     cursor: pointer;
     border: 1px solid var(--border-subtle);
-    background: white;
+    background: var(--bg-surface);
 }
 
 .ig-platform-opt.active.instagram {
@@ -1008,7 +1008,7 @@
     right: 16px;
     width: 300px;
     height: 320px;
-    background: white;
+    background: var(--bg-surface);
     border-radius: 12px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     border: 1px solid var(--border-subtle);
@@ -1113,7 +1113,7 @@
     cursor: pointer;
     overflow: hidden;
     position: relative;
-    background: white;
+    background: var(--bg-surface);
 }
 
 .ig-cover-upload:hover {
@@ -1142,7 +1142,7 @@
     display: flex;
     gap: 12px;
     padding: 12px 16px;
-    background: white;
+    background: var(--bg-surface);
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -1182,7 +1182,7 @@
     align-items: center;
     gap: 6px;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    background: white;
+    background: var(--bg-surface);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 

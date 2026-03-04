@@ -4,7 +4,7 @@
     display: flex;
     height: 100vh;
     margin: -32px;
-    background: #fff;
+    background: var(--bg-surface);
     font-family: 'Inter', sans-serif;
 }
 
@@ -14,7 +14,7 @@
     padding: 24px 0;
     display: flex;
     flex-direction: column;
-    background: #fff;
+    background: var(--bg-surface);
 }
 
 .inner-nav-item {
@@ -63,7 +63,7 @@
 .dsvoice-header .search-box {
     display: flex;
     align-items: center;
-    background: #fff;
+    background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: 99px;
     padding: 8px 16px;
@@ -100,7 +100,7 @@
     align-items: center;
     gap: 8px;
     padding: 8px 16px;
-    background: #fff;
+    background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: 12px;
     font-size: 13px;
@@ -183,7 +183,7 @@
 }
 
 .message-card {
-    background: #fff;
+    background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: 20px;
     padding: 24px;
@@ -233,7 +233,7 @@
 }
 
 .trigger-card {
-    background: #fff;
+    background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: 16px;
     padding: 24px;
@@ -293,7 +293,7 @@
 }
 
 .btn-white {
-    background: #fff;
+    background: var(--bg-surface);
     border-color: #e2e8f0;
     color: #475569;
 }

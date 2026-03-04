@@ -273,7 +273,7 @@
 }
 
 .item-actions-overlay button {
-    background: white;
+    background: var(--bg-surface);
     border: none;
     width: 32px;
     height: 32px;

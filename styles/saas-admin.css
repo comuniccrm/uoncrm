@@ -17,7 +17,7 @@
 }
 
 .saas-card {
-    background: white;
+    background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: 12px;
     padding: 24px;
@@ -144,7 +144,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 12px 16px;
-    background: white;
+    background: var(--bg-surface);
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -180,7 +180,7 @@
     border-radius: 12px;
     overflow: hidden;
     height: 400px;
-    background: white;
+    background: var(--bg-surface);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -205,7 +205,7 @@
 
 .preview-fake-card {
     height: 100px;
-    background: white;
+    background: var(--bg-surface);
     border-radius: 8px;
     border: 1px solid var(--border-subtle);
     margin-bottom: 12px;
