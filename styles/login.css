@@ -1,6 +1,6 @@
 /* Login Page Styles */
 :root {
-    --primary-color: #3b82f6;
+    --primary-color: var(--brand-color, #3b82f6);
     --primary-hover: #2563eb;
     --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     --card-bg: rgba(255, 255, 255, 0.03);

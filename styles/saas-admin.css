@@ -188,7 +188,7 @@
 
 .preview-header {
     height: 50px;
-    background-color: var(--saas-mock-brand, #3b82f6);
+    background-color: var(--brand-color);
     display: flex;
     align-items: center;
     padding: 0 16px;
