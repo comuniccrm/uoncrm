@@ -220,19 +220,16 @@
 .chat-tag.mql {
     background: color-mix(in srgb, #fdf2f8 20%, transparent);
     color: #db2777;
-    border: 1px solid #fce7f3;
 }
 
 .chat-tag.icp {
     background: #eff6ff;
     color: #3b82f6;
-    border: 1px solid #dbeafe;
 }
 
 .chat-tag.other {
     background: var(--bg-surface-secondary);
     color: #64748b;
-    border: 1px solid var(--border-subtle);
 }
 
 .chat-messages {
@@ -409,7 +406,6 @@
 .status-chip {
     padding: 6px 12px;
     border-radius: 20px;
-    border: 1px solid var(--border-subtle);
     background: var(--bg-surface);
     font-size: 11px;
     font-weight: 500;
@@ -428,7 +424,6 @@
 .status-chip.active {
     background: var(--brand-color);
     color: #fff;
-    border-color: var(--brand-color);
     box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
 }
 

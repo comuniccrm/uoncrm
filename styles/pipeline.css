@@ -220,44 +220,37 @@
     background: var(--brand-color-light);
     color: #3b82f6;
     font-weight: 500;
-    border: 1px solid #dbeafe;
 }
 
 /* Specific tag colors - matching delicate palette */
 .k-tag.tag-follow {
     background-color: var(--brand-color-light);
     color: #3b82f6;
-    border: 1px solid #dbeafe;
 }
 
 .k-tag.tag-follow-2 {
     background-color: color-mix(in srgb, var(--brand-color) 10%, transparent);
     color: #8b5cf6;
-    border: 1px solid #ede9fe;
 }
 
 .k-tag.tag-icp-ideal {
     background-color: #ecfdf5;
     color: #10b981;
-    border: 1px solid #d1fae5;
 }
 
 .k-tag.tag-mql {
     background-color: color-mix(in srgb, #fdf2f8 20%, transparent);
     color: #db2777;
-    border: 1px solid #fce7f3;
 }
 
 .k-tag.tag-tem-timing {
     background-color: var(--brand-color-light);
     color: #d97706;
-    border: 1px solid #fef3c7;
 }
 
 .k-tag.tag-outros-nicho {
     background-color: var(--brand-color-light);
     color: #ea580c;
-    border: 1px solid #ffedd5;
 }
 
 .k-tag.tag-reuniao {

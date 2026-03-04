@@ -30,7 +30,6 @@
     font-weight: 600;
     cursor: pointer;
     background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
     transition: all 0.2s;
 }
 

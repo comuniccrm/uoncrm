@@ -694,7 +694,6 @@ i[class*="ph-"] {
 .status-badge.ganhou {
     background: #dcfce7;
     color: #15803d;
-    border: 1px solid #bbf7d0;
 }
 
 .status-badge.perdido {
@@ -737,6 +736,5 @@ i[class*="ph-"] {
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
-    border: 1px solid #dcfce7;
     margin-right: 8px;
 }
