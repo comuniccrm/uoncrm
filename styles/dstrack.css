@@ -86,7 +86,7 @@
 }
 
 .stat-icon.facebook {
-    background: #eff6ff;
+    background: var(--brand-color-light);
     color: #3b82f6;
 }
 
@@ -177,7 +177,7 @@
 }
 
 .chat-item.active {
-    background: #f0f7ff;
+    background: var(--bg-surface-secondary);
 }
 
 .chat-item.active::after {
@@ -398,7 +398,7 @@
 }
 
 .facebook .platform-icon-circle {
-    background: #eff6ff;
+    background: var(--brand-color-light);
     color: #1877f2;
 }
 

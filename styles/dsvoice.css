@@ -36,7 +36,7 @@
 }
 
 .inner-nav-item.active {
-    background: #eff6ff;
+    background: var(--brand-color-light);
     color: #3b82f6;
     border-right: 3px solid #3b82f6;
 }
@@ -128,7 +128,7 @@
 /* Info Banner */
 .info-banner-blue {
     margin: 0 32px 24px;
-    background: #eff6ff;
+    background: var(--brand-color-light);
     border: 1px solid #bfdbfe;
     border-radius: 16px;
     padding: 16px 20px;
@@ -141,7 +141,7 @@
 .info-banner-icon-bg {
     width: 40px;
     height: 40px;
-    background: #dbeafe;
+    background: var(--bg-surface-secondary);
     border-radius: 12px;
     display: flex;
     align-items: center;
