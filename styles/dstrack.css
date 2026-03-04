@@ -429,7 +429,7 @@
 }
 
 .conn-status-badge.warning {
-    background: #fff7ed;
+    background: var(--brand-color-light);
     color: #f97316;
 }
 
