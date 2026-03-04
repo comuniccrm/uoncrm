@@ -756,7 +756,7 @@ function renderConversasView() {
                         <div class="details-label">DIRECIONAR LEAD</div>
                         <div class="status-chips-container">
                             ${App.getPipelineColumns().map(col => `
-                                <button class="status-chip ${activeContact.status === col.id ? 'active' : ''}" 
+                                <button class="status-chip ${col.id} ${activeContact.status === col.id ? 'active' : ''}" 
                                         onclick="window.validateAndRedirect(${activeContact.id}, '${col.id}')">
                                     ${col.name}
                                 </button>
