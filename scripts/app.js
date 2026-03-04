@@ -3886,8 +3886,7 @@ function renderWhatsAppWeb() {
     return div;
 }
 
-return div;
-}
+
 
 window.saveActionFlow = function () {
     const nodes = document.querySelectorAll('.canvas-node').length;
