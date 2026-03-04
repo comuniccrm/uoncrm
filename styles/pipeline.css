@@ -247,13 +247,13 @@
 }
 
 .k-tag.tag-tem-timing {
-    background-color: #fffbeb;
+    background-color: var(--brand-color-light);
     color: #d97706;
     border: 1px solid #fef3c7;
 }
 
 .k-tag.tag-outros-nicho {
-    background-color: #fff7ed;
+    background-color: var(--brand-color-light);
     color: #ea580c;
     border: 1px solid #ffedd5;
 }

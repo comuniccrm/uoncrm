@@ -232,7 +232,7 @@ body::after {
     right: 24px;
     padding: 16px 24px;
     border-radius: 16px;
-    background: white;
+    background: var(--bg-surface);
     color: #1e293b;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     transform: translateX(120%);
