@@ -229,7 +229,7 @@
 }
 
 .k-tag.tag-follow-2 {
-    background-color: #f5f3ff;
+    background-color: color-mix(in srgb, var(--brand-color) 10%, transparent);
     color: #8b5cf6;
     border: 1px solid #ede9fe;
 }
@@ -241,7 +241,7 @@
 }
 
 .k-tag.tag-mql {
-    background-color: #fdf2f8;
+    background-color: color-mix(in srgb, #fdf2f8 20%, transparent);
     color: #db2777;
     border: 1px solid #fce7f3;
 }
@@ -264,7 +264,7 @@
 }
 
 .k-tag.tag-noshow {
-    background-color: #fee2e2;
+    background-color: color-mix(in srgb, var(--status-error) 10%, transparent);
     color: #dc2626;
 }
 

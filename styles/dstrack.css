@@ -81,7 +81,7 @@
 }
 
 .stat-icon.instagram {
-    background: #fee2e2;
+    background: color-mix(in srgb, var(--status-error) 10%, transparent);
     color: #ef4444;
 }
 
@@ -393,7 +393,7 @@
 }
 
 .instagram .platform-icon-circle {
-    background: #fee2e2;
+    background: color-mix(in srgb, var(--status-error) 10%, transparent);
     color: #bc1888;
 }
 
@@ -424,7 +424,7 @@
 }
 
 .conn-status-badge.online {
-    background: #f0fdf4;
+    background: color-mix(in srgb, var(--status-success) 10%, transparent);
     color: #10b981;
 }
 
@@ -434,7 +434,7 @@
 }
 
 .conn-status-badge.offline {
-    background: #fef2f2;
+    background: color-mix(in srgb, var(--status-error) 10%, transparent);
     color: #ef4444;
 }
 
@@ -616,7 +616,7 @@
 /* Facebook Specific login styles */
 .social-login-modal.fb-style {
     max-width: 500px;
-    background: #f0f2f5;
+    background: var(--bg-surface-secondary);
 }
 
 .fb-login-card {
@@ -1204,7 +1204,7 @@
     width: 24px;
     height: 24px;
     border-radius: 4px;
-    background: #f1f5f9;
+    background: var(--bg-surface-secondary);
     background-size: cover;
     background-position: center;
     flex-shrink: 0;

@@ -217,7 +217,7 @@
 }
 
 .chat-tag.mql {
-    background: #fdf2f8;
+    background: color-mix(in srgb, #fdf2f8 20%, transparent);
     color: #db2777;
     border: 1px solid #fce7f3;
 }
@@ -454,12 +454,12 @@
 }
 
 .status-badge.agendamento {
-    background: #fef3c7;
+    background: color-mix(in srgb, #fef3c7 20%, transparent);
     color: #d97706;
 }
 
 .status-badge.follow_up {
-    background: #fae8ff;
+    background: color-mix(in srgb, #fae8ff 20%, transparent);
     color: #a21caf;
 }
 
@@ -474,7 +474,7 @@
 }
 
 .status-badge.perdido {
-    background: #fee2e2;
+    background: color-mix(in srgb, var(--status-error) 10%, transparent);
     color: #dc2626;
 }
 
